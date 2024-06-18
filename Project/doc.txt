@@ -1,0 +1,62 @@
+------------------------- Embeddes SQL Queries ----------------------------------
+1. ss = cursor.execute('select name from customer where Email = %s and passwd = %s',(email,password) )
+
+2. sss = cursor.execute('select blocked from customer where Email = %s and passwd = %s',(email,password) )
+
+3. ss = cursor.execute('select customer_id from customer where Email = %s',(email,) )
+
+4. cursor.execute('insert into buy (name) values(%s)',(medicine_name,))
+
+5. ss = cursor.execute('select customer_id from customer where Email = %s',(em,) )
+
+6. cursor.execute('select medicine_id from medicines where name = %s',(medicine_name,) )
+
+7. cursor.execute('INSERT INTO cart (customer_id,medicine_id) VALUES (%s,%s)',(cid[0][0],mid[0][0]))
+
+8. ss = cursor.execute('select name from customer where Email = %s',(email,) )
+
+9. cursor.execute('INSERT INTO customer (name,address, phone_number, credit_card,Email,passwd) VALUES (%s, %s, %s, %s, %s, %s)', (username,addrs,  phh,ccc, email,password))
+
+--------------------------- Triggers ------------------------------------------------
+def create_triggers():
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute('''
+        CREATE TRIGGER if not exists stock_update
+        AFTER INSERT ON buy
+        FOR EACH ROW
+        BEGIN
+            UPDATE medicines
+            SET stock = stock - 1
+            WHERE name = NEW.name;  
+        END
+    ''')
+
+    conn.commit()
+    conn.close()
+
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute('''
+        CREATE TRIGGER if not exists track_failed_login_attempts
+        AFTER INSERT ON failed_login
+        FOR EACH ROW
+        BEGIN
+            DECLARE attempts INT;
+            SELECT COUNT(*) INTO attempts
+            FROM failed_login
+            WHERE customer_id = NEW.customer_id
+                AND TIMESTAMPDIFF(MINUTE, created_at, NOW()) <= 10;  
+            IF attempts >= 3 THEN
+                UPDATE customer
+                SET blocked = 1
+                WHERE customer_id = NEW.customer_id;
+            END IF;
+        END
+    ''')
+
+    conn.commit()
+    conn.close()
+    print("kkkkk")

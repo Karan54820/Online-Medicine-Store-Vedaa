@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+  <script src="../assets/js/color-modes.js"></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <title>Prodcuts</title>
+
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='sign-in.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css.map') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.rtl.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.rtl.min.css.map') }}">
+  <style>
+    .rupee-sign::before {
+      content: "\20B9";
+      /* Unicode for Indian Rupee symbol */
+      font-family: Arial, sans-serif;
+      /* Ensure that the font supports the symbol */
+      color: white;
+      /* Example color */
+      font-size: 15px;
+      /* Example font size */
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <header data-bs-theme="dark">
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <img class="logo" src="{{ url_for('static', filename='logo.png') }}" src="logo.png" width="50" height="30" />
+          <strong>
+            <t> &nbsp&nbsp&nbsp&nbsp</t>Products
+          </strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+          aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">Available Products</h1>
+        </div>
+      </div>
+    </section>
+
+    <div class="album py-5 bg-body-tertiary">
+      <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          
+
+          <form method="post" action="/home">
+              <div class="col">
+                  <div class="card shadow-sm">
+                      <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ url_for('static', filename='med1.png') }}" src="med1.png" role="img" />
+                      <div class="card-body">
+                          <p class="card-text">Zincofer Tablet</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                              <input type="hidden" name="medicine_name" value="Zincofer">
+                              <button type="button" name = "m1" value = "m2" class="btn btn-sm btn-outline-secondary">View</button>
+                              <button type="submit" name = "m1" value = "m3" class="btn btn-sm btn-outline-secondary">Cart</button>
+                              
+                              <button type="submit" name = "m1" value = "m1"  class="btn btn-sm btn-outline-secondary">Buy</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </form>
+
+          
+
+            <form method="post" action="/home">
+              <div class="col">
+                  <div class="card shadow-sm">
+                      <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ url_for('static', filename='med1.png') }}" src="med1.png" role="img" />
+                      <div class="card-body">
+                          <p class="card-text">Zingavita Tablet</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                              <input type="hidden" name="medicine_name" value="Zingavita">
+                              <button type="button" name = "m1" value = "m2" class="btn btn-sm btn-outline-secondary">View</button>
+                              <button type="submit" name = "m1" value = "m3" class="btn btn-sm btn-outline-secondary">Cart</button>
+                              
+                              <button type="submit" name = "m1" value = "m1"  class="btn btn-sm btn-outline-secondary">Buy</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </form>
+            <form method="post" action="/home">
+              <div class="col">
+                  <div class="card shadow-sm">
+                      <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ url_for('static', filename='med1.png') }}" src="med1.png" role="img" />
+                      <div class="card-body">
+                          <p class="card-text">Shelcal Tablet</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                              <input type="hidden" name="medicine_name" value="Shelcal">
+                              <button type="button" name = "m1" value = "m2" class="btn btn-sm btn-outline-secondary">View</button>
+                              <button type="submit" name = "m1" value = "m3" class="btn btn-sm btn-outline-secondary">Cart</button>
+                              
+                              <button type="submit" name = "m1" value = "m1"  class="btn btn-sm btn-outline-secondary">Buy</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </form>
+
+
+          <div>
+          </div>
+        </div>
+      </div>
+      
+  </main>
+
+  <footer class="text-body-secondary py-5">
+    <div class="container">
+      <!-- <p class="float-end mb-1">
+      <a href="#">Back to top</a>
+    </p> -->
+      <p class="mb-1"> &copy; Veda</p>
+      <p class="mb-0">2024</p>
+    </div>
+  </footer>
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='bootstrap.bundle.min.js.map') }}"></script>
+  <script src="{{ url_for('static', filename='color-modes.js') }}"></script>
+</body>
+
+</html>

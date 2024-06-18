@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+  <script src="../assets/js/color-modes.js"></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  
+  <title>Signin</title>
+
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='sign-in.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css.map') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.rtl.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.rtl.min.css.map') }}">
+  <style>
+    #signin,
+    #signup {
+      margin-top: 1rem;
+    }
+    .rounded-image {
+      border-radius: 30%;
+    }
+  </style>
+
+  <link href="sign-in.css" rel="stylesheet">
+</head>
+
+<body class="d-flex align-items-center py-4 bg-body-tertiary">
+
+  <main class="form-signin w-100 m-auto">
+    <form action = "#" method = "post">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+      <img class="mb-4 rounded-image" src="{{ url_for('static', filename='logo.png') }}" alt="logo" width="100" height="57">
+
+
+      <div class="form-floating">
+        <input type="email" class="form-control" name = "em" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" name = "ps" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+
+      <button class="btn btn-primary w-100 py-2" id = "signin" name = "action" type="submit" value = "si">Sign In</button>
+      <button class="btn btn-primary w-100 py-2" id = "signup" name="action" type="submit"onclick="redirect('/submit')" value = "su">Sign up</button>
+      <p class="mt-5 mb-3 text-body-secondary">&copy; 2024</p>
+    </form>
+  </main>
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='bootstrap.bundle.min.js.map') }}"></script>
+  <script src="{{ url_for('static', filename='color-modes.js') }}"></script>
+</body>
+
+</html>
